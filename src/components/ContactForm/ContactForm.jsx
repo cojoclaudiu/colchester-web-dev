@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
+import useValidation from '../../hooks/useValidation';
 import Calendar from '../Icons/Calendar';
-import FormButton from '../FormButton/FormButton';
 import PostcodeForm from '../PostcodeForm/PostcodeForm';
+import SubmitButton from '../Buttons/SubmitButton';
 
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
+  const { isValidHandler, validDate, getAge } = useValidation();
   const [selected, setSelected] = useState(true);
 
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={styles.formContainer}>
+    <form className={styles.formContainer} onSubmit={submitFormHandler}>
       <div className={styles.name}>
         <div className={styles.nameContainer}>
           <label className={styles.firstName} htmlFor="firstName">
@@ -44,9 +50,18 @@ export default function ContactForm() {
         </label>
 
         <label className={styles.dateOfBirthContainer} htmlFor="dateOfBirth">
-          <h3 className={styles.inputLabel}>Date of birth</h3>
+          <h3 className={`${styles.inputLabel} ${styles.required}`}>
+            Date of birth
+          </h3>
           <div className={styles.inputDate}>
-            <input type="date" id="dateOfBirth" name="dateOfBirth" />
+            <input
+              type="text"
+              id="dateOfBirth"
+              name="dateOfBirth"
+              placeholder="dd/mm/YYYY"
+              onChange={isValidHandler}
+              required
+            />
             <div className={styles.calendarIcon}>
               <Calendar />
             </div>
@@ -54,12 +69,31 @@ export default function ContactForm() {
         </label>
       </div>
 
+      {/** TO SEE */}
+      {validDate.validFormat !== null && !validDate.validFormat && (
+        <div>
+          <p>Incorrect format for the date of birth</p>
+          <p>eg. 03/08/1992</p>
+        </div>
+      )}
+
+      {validDate?.validFormat && (
+        <div>
+          <p>Correct date format</p>
+        </div>
+      )}
+      {getAge(validDate.dateOfBirth) >= 18 ? (
+        <div>Valid age</div>
+      ) : (
+        <div>Invalid age</div>
+      )}
+
       <div className={styles.radioContainer}>
         <h2 className={`${styles.formHeading} ${styles.required}`}>
           Do you live in Colchester?
         </h2>
         <div className={styles.radioButtonContainer}>
-          <label htmlFor="yes">
+          <label className={styles.radioLabel} htmlFor="yes">
             <input
               type="radio"
               id="yes"
@@ -69,10 +103,10 @@ export default function ContactForm() {
               defaultChecked={selected}
             />
 
-            <h3 className={styles.inputLabel}>Yes</h3>
+            <h3>Yes</h3>
           </label>
 
-          <label htmlFor="no">
+          <label className={styles.radioLabel} htmlFor="no">
             <input
               type="radio"
               id="no"
@@ -81,7 +115,7 @@ export default function ContactForm() {
               onClick={() => setSelected(false)}
             />
 
-            <h3 className={styles.inputLabel}>No</h3>
+            <h3 className={styles.radioLabel}>No</h3>
           </label>
         </div>
       </div>
@@ -133,7 +167,7 @@ export default function ContactForm() {
           />
         </label>
       </div>
-      <FormButton name="Send your message" />
+      <SubmitButton name="Send your message" />
     </form>
   );
 }

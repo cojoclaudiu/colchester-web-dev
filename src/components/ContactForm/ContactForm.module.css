@@ -107,3 +107,12 @@ div.inputDate input[name='dateOfBirth'] {
 .messageTitle {
   padding-top: var(--small);
 }
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+}
+
+.radioLabel h3 {
+  padding-left: 0.5rem;
+}

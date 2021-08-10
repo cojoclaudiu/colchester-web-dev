@@ -22,5 +22,16 @@ input[name='postcode'] {
   height: 4rem;
   border: 2px solid var(--inputBorder);
   border-radius: 4px;
-  margin-bottom: var(--medium);
+}
+
+.notValid {
+  padding-bottom: 1rem;
+  font-weight: 300;
+  color: red;
+}
+
+.streetSelect {
+  display: flex;
+  flex-direction: column;
+  margin: var(--small) 0;
 }

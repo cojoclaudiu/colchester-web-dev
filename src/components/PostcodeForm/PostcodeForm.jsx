@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormButton from '../FormButton/FormButton';
+import FormButton from '../Buttons/FindButton';
 
 import styles from './PostcodeForm.module.css';
 
@@ -25,8 +25,6 @@ export default function PostcodeForm() {
     );
   };
 
-  console.log(postcode);
-
   return (
     <div className={styles.postcodeContainer}>
       <label htmlFor="postcode">
@@ -40,16 +38,26 @@ export default function PostcodeForm() {
         />
       </label>
 
-      {address?.length === 0 && <div>Invalid post code</div>}
-      <FormButton name="Find your address" postcode={onSubmitPostcode} />
+      {address?.length === 0 && (
+        <div className={styles.notValid}>
+          {` We couldn't find any matches. Try checking the spelling and searching
+          again.`}
+        </div>
+      )}
+      <FormButton
+        type="button"
+        name="Find your address"
+        postcode={onSubmitPostcode}
+      />
 
       {address?.length > 0 && (
-        <label htmlFor="street-select">
+        <label className={styles.streetSelect} htmlFor="street-select">
           <h3 className={styles.inputLabel}>Select your address</h3>
           <select
             className={styles.optionsContainer}
             name="streets"
             id="street-select"
+            required
           >
             {address.map((item) => (
               <option key={item.Id}>{item.Name}</option>
