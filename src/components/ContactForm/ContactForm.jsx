@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import useValidation from '../../hooks/useValidation';
-import Calendar from '../Icons/Calendar';
 import PostcodeForm from '../PostcodeForm/PostcodeForm';
 import SubmitButton from '../Buttons/SubmitButton';
+import DateOfBirth from '../DateOfBirth/DateOfBirth';
 
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
-  const { isValidHandler, validDate, getAge } = useValidation();
   const [selected, setSelected] = useState(true);
 
   const submitFormHandler = (e) => {
@@ -16,77 +14,43 @@ export default function ContactForm() {
 
   return (
     <form className={styles.formContainer} onSubmit={submitFormHandler}>
-      <div className={styles.name}>
-        <div className={styles.nameContainer}>
-          <label className={styles.firstName} htmlFor="firstName">
-            <h3 className={`${styles.inputLabel} ${styles.required}`}>First name</h3>
-            <input type="text" id="firstName" name="firstName" required />
-          </label>
-
-          <label className={styles.lastName} htmlFor="lastName">
-            <h3 className={`${styles.inputLabel} ${styles.required}`}>Last name</h3>
-            <input type="text" id="lastName" name="lastName" required />
-          </label>
-        </div>
-
-        <label className={styles.emailContainer} htmlFor="email">
-          <h3 className={`${styles.inputLabel} ${styles.required}`}>
-            Email address
-          </h3>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="e.g. joe.bloggs@gmail.com"
-            required
-          />
+      <div className={styles.nameContainer}>
+        <label className={styles.firstName} htmlFor="firstName">
+          <h3 className={`${styles.inputLabel} ${styles.required}`}>First name</h3>
+          <input type="text" id="firstName" name="firstName" required />
         </label>
 
-        <label className={styles.phoneContainer} htmlFor="phoneNumber">
-          <h3 className={`${styles.inputLabel} ${styles.required}`}>
-            Telephone number
-          </h3>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required />
-        </label>
-
-        <label className={styles.dateOfBirthContainer} htmlFor="dateOfBirth">
-          <h3 className={`${styles.inputLabel} ${styles.required}`}>
-            Date of birth
-          </h3>
-          <div className={styles.inputDate}>
-            <input
-              type="text"
-              id="dateOfBirth"
-              name="dateOfBirth"
-              placeholder="dd/mm/YYYY"
-              onChange={isValidHandler}
-              required
-            />
-            <div className={styles.calendarIcon}>
-              <Calendar />
-            </div>
-          </div>
+        <label className={styles.lastName} htmlFor="lastName">
+          <h3 className={`${styles.inputLabel} ${styles.required}`}>Last name</h3>
+          <input type="text" id="lastName" name="lastName" required />
         </label>
       </div>
 
-      {/** TO SEE */}
-      {validDate.validFormat !== null && !validDate.validFormat && (
-        <div>
-          <p>Incorrect format for the date of birth</p>
-          <p>eg. 03/08/1992</p>
-        </div>
-      )}
+      <label className={styles.emailContainer} htmlFor="email">
+        <h3 className={`${styles.inputLabel} ${styles.required}`}>Email address</h3>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="e.g. joe.bloggs@gmail.com"
+          required
+        />
+      </label>
 
-      {validDate?.validFormat && (
-        <div>
-          <p>Correct date format</p>
-        </div>
-      )}
-      {getAge(validDate.dateOfBirth) >= 18 ? (
-        <div>Valid age</div>
-      ) : (
-        <div>Invalid age</div>
-      )}
+      <label className={styles.phoneContainer} htmlFor="phoneNumber">
+        <h3 className={`${styles.inputLabel} ${styles.required}`}>
+          Telephone number
+        </h3>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          required
+          placeholder="+44"
+        />
+      </label>
+
+      <DateOfBirth />
 
       <div className={styles.radioContainer}>
         <h2 className={`${styles.formHeading} ${styles.required}`}>
@@ -120,7 +84,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className={styles.homeContainer}>
+      <div className={styles.secondaryForm}>
         <h2 className={styles.formHeading}>What is your home address?</h2>
         {selected && <PostcodeForm />}
 
@@ -166,8 +130,8 @@ export default function ContactForm() {
             required
           />
         </label>
+        <SubmitButton name="Send your message" />
       </div>
-      <SubmitButton name="Send your message" />
     </form>
   );
 }

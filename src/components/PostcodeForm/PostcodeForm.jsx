@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FormButton from '../Buttons/FindButton';
 
 import styles from './PostcodeForm.module.css';
@@ -29,13 +30,19 @@ export default function PostcodeForm() {
     <div className={styles.postcodeContainer}>
       <label htmlFor="postcode">
         <h3 className={`${styles.inputLabel} ${styles.required}`}>Postcode:</h3>
-        <input
-          type="text"
-          id="postcode"
-          name="postcode"
-          required
-          onChange={postcodeHandler}
-        />
+        {address?.length > 0 ? (
+          <div>
+            {postcode} <Link to="/">Chnage</Link>
+          </div>
+        ) : (
+          <input
+            type="text"
+            id="postcode"
+            name="postcode"
+            required
+            onChange={postcodeHandler}
+          />
+        )}
       </label>
 
       {address?.length === 0 && (
@@ -44,11 +51,14 @@ export default function PostcodeForm() {
           again.`}
         </div>
       )}
-      <FormButton
-        type="button"
-        name="Find your address"
-        postcode={onSubmitPostcode}
-      />
+
+      {!address?.length > 0 && (
+        <FormButton
+          type="button"
+          name="Find your address"
+          postcode={onSubmitPostcode}
+        />
+      )}
 
       {address?.length > 0 && (
         <label className={styles.streetSelect} htmlFor="street-select">

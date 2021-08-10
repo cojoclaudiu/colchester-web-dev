@@ -11,6 +11,8 @@
   --buttonForm: #258faf;
   --buttonFormBorder: #105d74;
 
+  --valid: #2ca34d;
+  --danger: #cf222e;
   /**Font size */
   --mainHeading: 5.6rem;
   --mainLineHeight: 6.1rem;

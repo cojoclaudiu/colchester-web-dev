@@ -1,5 +1,8 @@
 input[name='postcode'] {
-  width: 36rem !important;
+  padding-left: 0.5rem;
+  height: 4rem;
+  border: 2px solid var(--inputBorder);
+  width: 36rem;
 }
 
 .inputLabel {
@@ -11,7 +14,7 @@ input[name='postcode'] {
 
 .required:after {
   content: '*';
-  color: red;
+  color: var(--danger);
   margin-left: 5px;
 }
 
@@ -27,11 +30,21 @@ input[name='postcode'] {
 .notValid {
   padding-bottom: 1rem;
   font-weight: 300;
-  color: red;
+  color: var(--danger);
 }
 
 .streetSelect {
   display: flex;
   flex-direction: column;
   margin: var(--small) 0;
+}
+
+/* .buttonContainer {
+  padding-top: 1.7rem;
+} */
+
+.postcodeContainer {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1.7rem 0;
 }

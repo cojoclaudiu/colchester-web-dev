@@ -1,15 +1,16 @@
 .formContainer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2.7rem 0;
   padding: var(--medium);
   background-color: var(--backgroundGray);
 }
 
-.formContainer input:not(input[type='radio']) {
+.formContainer input:not(input[type='radio']):not(input[name='postcode']) {
+  padding-left: 0.5rem;
   width: 100%;
   height: 4rem;
   border: 2px solid var(--inputBorder);
-  margin-bottom: 1.5rem;
 }
 
 .nameContainer,
@@ -23,13 +24,11 @@
   display: flex;
   font-size: 1.6rem;
   font-weight: 600;
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
 }
 
 .formHeading {
   font-size: 2.8rem;
-  padding-top: var(--medium);
-  padding-bottom: 2rem;
 }
 
 .radioButtonContainer {
@@ -37,10 +36,17 @@
   align-items: center;
 }
 
+.radioContainer {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
 .radioContainer input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   display: grid;
+
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -58,11 +64,6 @@
   height: 2rem;
 }
 
-.radioButtonContainer label {
-  padding-left: 1.6rem;
-  padding-bottom: 0;
-}
-
 .radioButtonContainer label:not(:last-child) {
   padding-right: var(--medium);
 }
@@ -72,36 +73,12 @@
   border: 2px solid var(--inputBorder);
   width: 100%;
   height: 16rem;
-  margin-bottom: 2.4rem;
 }
 
 .required:after {
   content: '*';
-  color: red;
+  color: var(--danger);
   margin-left: 5px;
-}
-
-div.inputDate input[name='dateOfBirth'] {
-  cursor: pointer;
-  margin-bottom: 0;
-}
-
-.dateOfBirthContainer {
-  display: grid;
-  grid-auto-flow: row;
-}
-
-.inputDate {
-  display: grid;
-  position: relative;
-}
-
-.calendarIcon {
-  display: grid;
-  position: absolute;
-  align-self: center;
-  justify-self: flex-end;
-  right: 1rem;
 }
 
 .messageTitle {
@@ -115,4 +92,10 @@ div.inputDate input[name='dateOfBirth'] {
 
 .radioLabel h3 {
   padding-left: 0.5rem;
+}
+
+.secondaryForm {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1.5rem 0;
 }

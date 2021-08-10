@@ -1,3 +1,6 @@
 .sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
   margin-top: 3.5rem;
 }
