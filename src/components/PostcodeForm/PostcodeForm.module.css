@@ -1,0 +1,26 @@
+input[name='postcode'] {
+  width: 36rem !important;
+}
+
+.inputLabel {
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-bottom: 1.3rem;
+}
+
+.required:after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+
+.optionsContainer {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 36rem;
+  height: 4rem;
+  border: 2px solid var(--inputBorder);
+  border-radius: 4px;
+  margin-bottom: var(--medium);
+}

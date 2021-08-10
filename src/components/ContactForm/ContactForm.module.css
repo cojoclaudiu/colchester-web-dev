@@ -1,0 +1,109 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--medium);
+  background-color: var(--backgroundGray);
+}
+
+.formContainer input:not(input[type='radio']) {
+  width: 100%;
+  height: 4rem;
+  border: 2px solid var(--inputBorder);
+  margin-bottom: 1.5rem;
+}
+
+.nameContainer,
+.townPostcodeContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 1.6rem;
+}
+
+.inputLabel {
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding-bottom: 1.2rem;
+}
+
+.formHeading {
+  font-size: 2.8rem;
+  padding-top: var(--medium);
+  padding-bottom: 2rem;
+}
+
+.radioButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.radioContainer input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 3.8rem;
+  height: 3.8rem;
+  border: 2px solid var(--mainDark);
+  border-radius: 50%;
+}
+.radioContainer input[type='radio']:checked:after {
+  content: '';
+  background-color: var(--mainDark);
+  border-radius: 50%;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+}
+
+.radioButtonContainer label {
+  padding-left: 1.6rem;
+  padding-bottom: 0;
+}
+
+.radioButtonContainer label:not(:last-child) {
+  padding-right: var(--medium);
+}
+
+.textarea {
+  resize: none;
+  border: 2px solid var(--inputBorder);
+  width: 100%;
+  height: 16rem;
+  margin-bottom: 2.4rem;
+}
+
+.required:after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+
+div.inputDate input[name='dateOfBirth'] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.dateOfBirthContainer {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.inputDate {
+  display: grid;
+  position: relative;
+}
+
+.calendarIcon {
+  display: grid;
+  position: absolute;
+  align-self: center;
+  justify-self: flex-end;
+  right: 1rem;
+}
+
+.messageTitle {
+  padding-top: var(--small);
+}

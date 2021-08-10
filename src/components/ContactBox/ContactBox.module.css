@@ -1,0 +1,23 @@
+.contactContainer {
+  display: grid;
+  height: 13.1rem;
+  grid-template-columns: 3.3rem 1fr;
+  align-content: center;
+  align-items: center;
+  background-color: var(--backgroundGray);
+  padding: 3rem;
+  margin-bottom: var(--medium);
+}
+
+.contentBox {
+  border-left: 0.852rem solid var(--contactBorder);
+  margin-left: 1.4rem;
+  padding-left: 1.4rem;
+  font-size: 1.9rem;
+  font-weight: 300;
+  line-height: 2.5rem;
+}
+
+a.contactLink {
+  font-size: 1.6rem;
+}

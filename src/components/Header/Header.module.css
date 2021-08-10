@@ -1,0 +1,17 @@
+.headerContainer {
+  grid-area: 1/1/2/3;
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.mainHeading {
+  font-size: var(--mainHeading);
+  line-height: var(--mainLineHeight);
+}
+
+.secondaryHeading {
+  font-weight: 300;
+  font-size: var(--secondaryHeading);
+  color: var(--mainBlue);
+  margin-bottom: var(--small);
+}

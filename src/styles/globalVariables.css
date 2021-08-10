@@ -1,0 +1,23 @@
+:root {
+  --mainBackground: #07454e;
+  --mainDark: #0a0a0a;
+  --mainBlue: #0e7e9f;
+  --link: #14576c;
+  --textGray: #484848;
+  --backgroundGray: #f2f2f2;
+  --contactBorder: #d8d8d8;
+  --inputBorder: #979797;
+
+  --buttonForm: #258faf;
+  --buttonFormBorder: #105d74;
+
+  /**Font size */
+  --mainHeading: 5.6rem;
+  --mainLineHeight: 6.1rem;
+  --secondaryHeading: 2.8rem;
+  --paragraph: 2.1rem;
+
+  /** Padding and Margins */
+  --small: 1rem;
+  --medium: 3rem;
+}

@@ -1,0 +1,20 @@
+.paragraphContainer {
+  font-size: var(--paragraph);
+  line-height: 2.8rem;
+  color: var(--textGray);
+  font-weight: 300;
+}
+
+.skillsSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: max-content repeat(2, 10.4rem);
+  gap: 2.1rem 4.5rem;
+  margin-top: 2.6rem;
+}
+
+.sectionHeading {
+  grid-area: 1/1/2/3;
+  font-size: var(--secondaryHeading);
+  padding-bottom: 0.9rem;
+}
