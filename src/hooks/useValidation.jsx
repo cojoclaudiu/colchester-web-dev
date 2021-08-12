@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useValidation = () => {
+const useDateValidation = () => {
   const [validDate, setValidDate] = useState({
     validFormat: null,
     dateOfBirth: undefined,
@@ -32,4 +32,4 @@ const useValidation = () => {
   return { isValidHandler, getAge, validDate };
 };
 
-export default useValidation;
+export default useDateValidation;

@@ -1,0 +1,13 @@
+@media only screen and (max-width: 1220px) {
+  .imageContainer {
+    display: flex;
+    width: 100%;
+    height: 13.1rem;
+    background-color: #6dbfae;
+  }
+
+  .imageContainer svg {
+    width: 100%;
+    height: auto;
+  }
+}

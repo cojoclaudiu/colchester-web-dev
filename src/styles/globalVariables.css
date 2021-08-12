@@ -22,4 +22,41 @@
   /** Padding and Margins */
   --small: 1rem;
   --medium: 3rem;
+
+  --inputWidth: 36rem;
+}
+
+@media only screen and (max-width: 1220px) {
+  :root {
+    --mainHeading: 5rem;
+    --mainLineHeight: 5.6rem;
+    --secondaryHeading: 2.3rem;
+  }
+}
+@media only screen and (max-width: 1120px) {
+  :root {
+    --mainHeading: 4rem;
+    --mainLineHeight: 4.6rem;
+    --secondaryHeading: 2.3rem;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  :root {
+    --paragraph: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  :root {
+    --mainHeading: 2.6rem;
+    --mainLineHeight: 3.6rem;
+    --secondaryHeading: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --inputWidth: 100%;
+  }
 }

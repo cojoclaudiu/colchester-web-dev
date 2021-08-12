@@ -2,7 +2,7 @@ input[name='postcode'] {
   padding-left: 0.5rem;
   height: 4rem;
   border: 2px solid var(--inputBorder);
-  width: 36rem;
+  width: var(--inputWidth);
 }
 
 .inputLabel {
@@ -18,19 +18,24 @@ input[name='postcode'] {
   margin-left: 5px;
 }
 
+.selectContainer {
+  display: grid;
+  width: var(--inputWidth);
+}
+
 .optionsContainer {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 36rem;
+  display: flex;
+  width: 100%;
   height: 4rem;
   border: 2px solid var(--inputBorder);
   border-radius: 4px;
-}
-
-.notValid {
-  padding-bottom: 1rem;
-  font-weight: 300;
-  color: var(--danger);
+  padding-left: 0.5rem;
+  background: white
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath id='Shape' d='M1.41,0,6,4.949,10.59,0,12,1.531,6,8,0,1.531Z' fill='%23979797'/%3E%3C/svg%3E%0A")
+    no-repeat;
+  background-position: right 0.7rem top 50%;
 }
 
 .streetSelect {
@@ -39,12 +44,20 @@ input[name='postcode'] {
   margin: var(--small) 0;
 }
 
-/* .buttonContainer {
-  padding-top: 1.7rem;
-} */
-
 .postcodeContainer {
   display: grid;
   grid-auto-flow: row;
   gap: 1.7rem 0;
+}
+.postcodeDetails {
+  display: flex;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.changePostcode {
+  cursor: pointer;
+  color: var(--link);
+  text-decoration: underline;
+  padding-left: 1rem;
 }

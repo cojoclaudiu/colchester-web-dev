@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import FormButton from '../Buttons/FindButton';
-
+import React, { useState, useRef } from 'react';
+import FormButton from 'components/Buttons/FindButton';
 import styles from './PostcodeForm.module.css';
 
 export default function PostcodeForm() {
+  const selecEl = useRef();
   const [address, setAddress] = useState(null);
   const [postcode, setPostcode] = useState('');
 
@@ -31,8 +30,15 @@ export default function PostcodeForm() {
       <label htmlFor="postcode">
         <h3 className={`${styles.inputLabel} ${styles.required}`}>Postcode:</h3>
         {address?.length > 0 ? (
-          <div>
-            {postcode} <Link to="/">Chnage</Link>
+          <div className={styles.postcodeDetails}>
+            <div className={styles.selectedPostcode}>{postcode}</div>
+            <button
+              className={styles.changePostcode}
+              type="button"
+              onClick={() => setAddress(null)}
+            >
+              Change
+            </button>
           </div>
         ) : (
           <input
@@ -46,7 +52,7 @@ export default function PostcodeForm() {
       </label>
 
       {address?.length === 0 && (
-        <div className={styles.notValid}>
+        <div className="notValid">
           {` We couldn't find any matches. Try checking the spelling and searching
           again.`}
         </div>
@@ -62,17 +68,25 @@ export default function PostcodeForm() {
 
       {address?.length > 0 && (
         <label className={styles.streetSelect} htmlFor="street-select">
-          <h3 className={styles.inputLabel}>Select your address</h3>
-          <select
-            className={styles.optionsContainer}
-            name="streets"
-            id="street-select"
-            required
-          >
-            {address.map((item) => (
-              <option key={item.Id}>{item.Name}</option>
-            ))}
-          </select>
+          <h3 className={`${styles.inputLabel} ${styles.required}`}>
+            Select your address
+          </h3>
+
+          <div className={styles.selectContainer}>
+            <select
+              ref={selecEl}
+              className={styles.optionsContainer}
+              name="streets"
+              id="street-select"
+              required
+            >
+              {address.map((item) => (
+                <option key={item.Id} value={item.Name}>
+                  {item.Name}
+                </option>
+              ))}
+            </select>
+          </div>
         </label>
       )}
     </div>

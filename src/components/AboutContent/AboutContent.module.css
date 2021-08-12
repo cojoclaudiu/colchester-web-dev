@@ -18,3 +18,10 @@
   font-size: var(--secondaryHeading);
   padding-bottom: 0.9rem;
 }
+
+@media only screen and (max-width: 720px) {
+  .skillsSection {
+    display: flex;
+    flex-direction: column;
+  }
+}

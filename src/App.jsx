@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import About from './pages/About/About';
+import Confirmation from 'pages/Confirmation/Confirmation';
 import Contact from './pages/Contact/Contact';
+import About from './pages/About/About';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Switch>
         <Route path="/" component={About} exact />
         <Route path="/contact" component={Contact} exact />
+        <Route path="/confirmation" component={Confirmation} exact />
       </Switch>
     </Router>
   );

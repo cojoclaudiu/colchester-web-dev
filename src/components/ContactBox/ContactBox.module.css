@@ -21,3 +21,16 @@
 a.contactLink {
   font-size: 1.6rem;
 }
+
+@media only screen and (max-width: 1220px) {
+  .contactContainer {
+    margin-bottom: 0;
+    padding: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .contentBox {
+    font-size: 1.6rem;
+  }
+}

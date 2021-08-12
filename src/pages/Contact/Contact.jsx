@@ -1,10 +1,12 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import Header from '../../components/Header/Header';
-import MapImg from '../../components/Icons/MapImg';
-import Layout from '../../components/Layout/Layout';
-import Main from '../../components/Main/Main';
-import Sidebar from '../../components/Sidebar/Sidebar';
+import Layout from 'components/Layout/Layout';
+import Header from 'components/Header/Header';
+import Main from 'components/Main/Main';
+import ContactForm from 'components/ContactForm/ContactForm';
+import Sidebar from 'components/Sidebar/Sidebar';
+import FindMeBox from 'components/FindMeBox/FindMeBox';
+import SocialMediaBox from 'components/SocialMediaBox/SocialMediaBox';
+import MapBox from 'components/MapBox/MapBox';
 
 export default function Contact() {
   return (
@@ -14,7 +16,9 @@ export default function Contact() {
         <ContactForm />
       </Main>
       <Sidebar>
-        <MapImg />
+        <MapBox />
+        <FindMeBox />
+        <SocialMediaBox />
       </Sidebar>
     </Layout>
   );

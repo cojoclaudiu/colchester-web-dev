@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArrowRightIcon from '../Icons/ArrowRightIcon';
+import ArrowRightIcon from 'components/Icons/ArrowRightIcon';
 import styles from './ContactBox.module.css';
 
 export default function ContactBox() {

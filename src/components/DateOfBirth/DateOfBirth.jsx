@@ -1,11 +1,11 @@
 import React from 'react';
-import useValidation from '../../hooks/useValidation';
-import Calendar from '../Icons/Calendar';
+import useDateValidation from 'hooks/useValidation';
+import Calendar from 'components/Icons/Calendar';
 
 import styles from './DateOfBirth.module.css';
 
 export default function DateOfBirth() {
-  const { isValidHandler, validDate, getAge } = useValidation();
+  const { isValidHandler, validDate, getAge } = useDateValidation();
   return (
     <>
       <label className={styles.dateOfBirthContainer} htmlFor="dateOfBirth">
@@ -23,25 +23,22 @@ export default function DateOfBirth() {
             <Calendar />
           </div>
         </div>
+
+        <div className={styles.validationContainer}>
+          {validDate.validFormat !== null && !validDate.validFormat && (
+            <>
+              <p className="notValid">Incorrect format for the date of birth</p>
+              <p className="valid">eg. 03/08/1992</p>
+            </>
+          )}
+
+          {validDate?.validFormat && <p className="valid">Date format valid</p>}
+          {getAge(validDate.dateOfBirth) >= 18 && <p className="valid">Valid age</p>}
+          {getAge(validDate.dateOfBirth) < 18 && (
+            <p className="notValid">Minimum age: 18 years old</p>
+          )}
+        </div>
       </label>
-
-      {/** TO SEE */}
-      <>
-        {validDate.validFormat !== null && !validDate.validFormat && (
-          <>
-            <p>Incorrect format for the date of birth</p>
-            <p>eg. 03/08/1992</p>
-          </>
-        )}
-
-        {validDate?.validFormat && <p>Date format valid</p>}
-        {getAge(validDate.dateOfBirth) >= 18 && (
-          <p className={styles.valid}>Valid age</p>
-        )}
-        {getAge(validDate.dateOfBirth) < 18 && (
-          <p className={styles.required}>You must be over 18</p>
-        )}
-      </>
     </>
   );
 }

@@ -1,0 +1,31 @@
+.findMeContainer {
+  display: flex;
+  background-color: var(--backgroundGray);
+  height: 13.1rem;
+  width: 100%;
+}
+
+.contentContainer {
+  display: grid;
+  grid-auto-flow: row;
+  padding-left: 1.6rem;
+  margin: 2.4rem;
+  grid-area: 1/2/2/3;
+  border-left: 0.8rem solid var(--contactBorder);
+}
+
+.findTitle {
+  font-size: 1.9rem;
+}
+
+@media only screen and (max-width: 1220px) {
+  .findMeContainer {
+    grid-area: 1/1/2/2;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .findMeContainer {
+    grid-area: 2/1/3/3;
+  }
+}

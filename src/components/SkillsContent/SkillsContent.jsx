@@ -1,5 +1,5 @@
 import React from 'react';
-import StartIcon from '../Icons/StarIcon';
+import StartIcon from 'components/Icons/StarIcon';
 import styles from './SkillsContent.module.css';
 
 export default function SkillsContent() {

@@ -1,0 +1,22 @@
+.valid {
+  color: var(--valid);
+}
+
+.valid:before {
+  content: '\2713';
+  padding-right: 0.5rem;
+}
+
+.notValid {
+  color: var(--danger);
+}
+.notValid:before {
+  content: '\2716';
+  padding-right: 0.5rem;
+}
+
+.valid,
+.notValid {
+
+  font-weight: 300;
+}

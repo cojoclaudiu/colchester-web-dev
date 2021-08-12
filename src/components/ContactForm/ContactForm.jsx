@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import PostcodeForm from '../PostcodeForm/PostcodeForm';
-import SubmitButton from '../Buttons/SubmitButton';
-import DateOfBirth from '../DateOfBirth/DateOfBirth';
+import { useHistory } from 'react-router-dom';
+import PostcodeForm from 'components/PostcodeForm/PostcodeForm';
+import SubmitButton from 'components/Buttons/SubmitButton';
+import DateOfBirth from 'components/DateOfBirth/DateOfBirth';
 
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
+  const history = useHistory();
   const [selected, setSelected] = useState(true);
 
   const submitFormHandler = (e) => {
     e.preventDefault();
+    history.push('/confirmation');
   };
 
   return (

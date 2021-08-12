@@ -29,3 +29,7 @@
   justify-self: flex-end;
   right: 1rem;
 }
+
+.validationContainer {
+  padding-top: 1rem;
+}
